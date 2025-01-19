@@ -1,0 +1,42 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Build and temporary files
+/dist/
+/build/
+/coverage/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# NPM package lock file (optional, depending on whether you want to track it)
+package-lock.json
+
+# Yarn lock file (optional, depending on whether you use Yarn)
+yarn.lock
+
+# Optional NPM or Yarn directories
+npm-debug.log*
+yarn-error.log*
+
+# Debugger configurations
+.vscode/launch.json
+.vscode/tasks.json
+
+# Docker
+.docker/
+
+# PM2 process files (if using PM2 to manage processes)
+pids/
+*.pid

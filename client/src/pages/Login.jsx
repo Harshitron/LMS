@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLoginUserMutation, useRegisterUserMutation } from "@/features/api/authAPi";
+import { useLoginUserMutation, useRegisterUserMutation } from "../features/api/authApi.js";
 import { toast } from "sonner";
 import { Loader2, Mail, Lock, User, ArrowRight } from 'lucide-react';
 import { motion } from "framer-motion";

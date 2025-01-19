@@ -1,0 +1,51 @@
+version: '3.8'
+
+name: lms
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongodb-lms
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - lms
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server:/usr/src/server
+      - /usr/src/server/node_modules
+    networks:
+      - lms
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - ./client:/usr/src/client
+      - /usr/src/client/node_modules
+    networks:
+      - lms
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
+
+networks:
+  lms:
+    driver: bridge
